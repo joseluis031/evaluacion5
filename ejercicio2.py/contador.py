@@ -1,5 +1,4 @@
-import pickle
-import os
+
 
 def crear_fichero():
     try:
@@ -12,30 +11,26 @@ def crear_fichero():
         
 def leer_fichero():
     f = open("contador.txt", "r")
-    leer = f.read()
+    contador = (f.read())
     f.close()
-    return leer
+    return contador
 
 def escribir_fichero(argumento):
     if argumento == "inc":
         contador = leer_fichero()
-        contador += 1
+        contador = int(contador) + 1  
         f = open("contador.txt", "w")
-        f.write(str(argumento))
+        f.write(str(contador))
         f.close()
-        print("EL fichero tiene: {}".format(contador))
+        print("EL contador tiene: {}".format(contador))
     elif argumento == "dec":
         contador = leer_fichero()
-        contador -= 1
+        contador = int(contador) - 1
         f = open("contador.txt", "w")
-        f.write(str(argumento))
+        f.write(str(contador))
         f.close()
-        print("EL fichero tiene: {}".format(contador))
+        print("EL contador tiene: {}".format(contador))
     else:
-        print("EL fichero tiene: {}".format(contador))
+        print("EL contador tiene: {}".format(contador))
 
 
-escribir_fichero("inc")
-
-    
- 
